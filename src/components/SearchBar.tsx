@@ -5,7 +5,7 @@ export default function SearchBar() {
     <div>
        <div className="search-container">
          <form action="/action_page.php">
-           <input type="text" placeholder="Search.." alt="search"/>
+           <input type="text" placeholder="Search.." alt="search"></input>
              <button type="submit"><i className="fa fa-search"></i></button>
          </form>
   </div>

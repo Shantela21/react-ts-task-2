@@ -74,7 +74,7 @@ import React, { useState, useEffect } from "react";
     };
 
     return (
-      <div>
+      <div className="main">
         <form className="form" onSubmit={handleSubmit}>
           <input
             className="title"
@@ -118,7 +118,7 @@ import React, { useState, useEffect } from "react";
         </form>
 
         {items.length > 0 && (
-          <table className="table" border={1} style={{ marginTop: 20, width: "100%" }}>
+          <table className="table" border={1}>
             <thead>
               <tr>
                 <th>Title</th>
@@ -139,17 +139,38 @@ import React, { useState, useEffect } from "react";
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      {item.link}
+                      link
                     </a>
                   </td>
                   <td>{item.tags}</td>
                   <td>{item.description}</td>
                   <td>
-                    <button type="button" onClick={() => handleEdit(index)}>
-                      Edit
+                    <button
+                      className="t-btn"
+                      type="button"
+                      style={{
+                        backgroundColor: "#70ae6e",
+                        marginBottom: "2%",
+                        border: "none",
+                        height: "40px",
+                        width: "100px",
+                      }}
+                      onClick={() => handleEdit(index)}
+                    >
+                      EDIT
                     </button>
-                    <button type="button" onClick={() => handleDelete(index)}>
-                      Delete
+                    <button
+                      className="t-btn"
+                      type="button"
+                      style={{
+                        backgroundColor: "#f4743b",
+                        border: "none",
+                        height: "40px",
+                        width: "100px",
+                      }}
+                      onClick={() => handleDelete(index)}
+                    >
+                      DELETE
                     </button>
                   </td>
                 </tr>

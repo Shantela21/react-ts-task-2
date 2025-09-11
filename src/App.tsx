@@ -11,14 +11,19 @@ function App() {
 
   return (
     <>
-    <Title/>
-      <Navbar/>
-      <SearchBar/>
-      <Form/>
-      {/* <Table/> */}
-      <Footer/>
+      <div className="app">
+        {/* <Title/> */}
+        <Navbar />
+        <div className='hero-section'>
+          <SearchBar />
+          <Form />
+        </div>
+
+        {/* <Table/> */}
+        <Footer />
+      </div>
     </>
-  )
+  );
 }
 
 export default App

@@ -4,20 +4,26 @@
   box-sizing: border-box;
 }
 html,
-body,
-#root {
+body {
   width: 100%;
   height: 100%;
-  background-color: rgb(228, 223, 223);
+  /* background-color: rgb(25, 185, 87); */
+  border-radius: 20px;
 }
 #root {
   height: 100%;
   width: 100%;
   justify-self: center;
   /* margin: 10%; */
-  /* border: 1px solid rgb(201, 196, 196); */
+  /* border: 2px solid red; */
   border-radius: 20px;
-  
+}
+.app {
+  /* height: 96%; */
+  background-color: rgba(228, 223, 223, 0.2);
+}
+.hero-section {
+  /* height: 85%; */
 }
 /* .container{
   border: 1px solid red;
@@ -34,22 +40,22 @@ body,
 
 } */
 .topnav {
-  width: 100%;
   background-color: white;
+  /* height: 5%; */
+  width: 100%;
   display: flex;
-  align-items: center;
-  padding: 1%;
-  border-radius: 20px;
-  /* border: 1px solid red; */
-}
-.topnav :hover{
-  background-color: #70ae6e; 
+  justify-content: space-evenly;
+  flex-direction: row;
+  padding: 20px;
   border-radius: 20px;
 }
-
-/* .topnav a.active{
-  padding: 5%;
-} */
+.topnav :hover {
+  background-color: #70ae6e;
+  border-radius: 20px;
+}
+.topnav > a {
+  color: black;
+}
 
 .search-container {
   width: 50%;
@@ -63,6 +69,7 @@ body,
   margin-bottom: 2%;
   margin-left: 25%;
   margin-top: 2%;
+  padding: 10px;
 }
 .search-container button {
   float: right;
@@ -76,9 +83,9 @@ body,
   display: flex;
   align-items: center;
   width: 100%;
-  height: 6vh;
+  /* height: 6vh; */
   border-radius: 20px;
-  background: rgb(228, 223, 223);
+  background-color: transparent;
 }
 #search-btn {
   left: 20px;
@@ -89,40 +96,40 @@ body,
   outline: none;
 }
 
-
+.form {
+  border: 1px solid rgb(245, 236, 236);
+  background-color: rgb(228, 223, 223);
+  width: 50%;
+  /* height: 50%; */
+  padding: 20px;
+  border-radius: 20px;
+  margin-left: 25%;
+}
 
 .footer {
- width: 100%;
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  align-items: center;
-  margin-top: 8%;
-   
-  border-radius: 20px;
-  height: 12.6vh;
+  background-color: white;
   /* border: 1px solid blue; */
-  
+  /* height: 10%; */
+  border-radius: 20px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  margin-top: 10px;
+  padding: 10px;
 }
 .footer > p {
   text-align: center;
   padding: 10%;
   font-weight: bold;
   color: rgb(14, 13, 13);
-  
 }
-/* .icons{
+.icons {
   display: flex;
-  justify-items: center;
-  justify-content: space-between;
-} */
-.form {
-  border: 1px solid rgb(245, 236, 236);
-  width: 50%;
-  height: 50%;
-  padding: 20px;
-  border-radius: 20px;
-  margin-left: 25%;
+  gap: 10px;
+  justify-content: space-evenly;
 }
+
 .title {
   padding: 15px;
   margin: 10%;
@@ -155,7 +162,7 @@ body,
   padding: 15px;
   margin: 10%;
   margin-top: 1%;
-  margin-bottom: 2%;  
+  margin-bottom: 2%;
   width: 80%;
   border-radius: 5px;
   border: 1px solid gray;
@@ -171,27 +178,52 @@ body,
   font-weight: bold;
   width: 22%;
 }
-.add-btn:hover{
- border: none;
- background-color: #70ae6e;
- box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+.add-btn:hover {
+  border: none;
+  background-color: #70ae6e;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
-.links{
+.links {
   margin-top: 4%;
   border: 1px solid rgb(155, 149, 145);
   color: black;
   border-radius: 20px;
 }
-.table, th, td {
-  border-collapse: collapse;
-  /* border: 1px solid rgb(245, 6, 6); */
+.table {
+  margin-left: 25%;
+  border: 1px solid white;
   width: 50%;
   height: 45%;
   padding: 20px;
   margin-top: 1%;
+  border-radius: 20px;
+  background-color: rgb(228, 223, 223);
 }
-.table{
- 
-  /* border: 1px solide rgb(21, 5, 243);
-  border-radius: 20px; */
+th,
+td {
+  padding: 5px;
+  word-wrap: break-word;
+}
+
+td {
+  height: 50px;
+  vertical-align: bottom;
+}
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.t-btn {
+  font-weight: bold;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;
+}
+.t-btn:hover {
+  border: none;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }

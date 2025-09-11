@@ -11,11 +11,11 @@ body,
   background-color: rgb(228, 223, 223);
 }
 #root {
-  height: 90%;
-  width: 80%;
+  height: 100%;
+  width: 100%;
   justify-self: center;
-  margin: 10%;
-  border: 1px solid rgb(201, 196, 196);
+  /* margin: 10%; */
+  /* border: 1px solid rgb(201, 196, 196); */
   border-radius: 20px;
   
 }
@@ -40,6 +40,7 @@ body,
   align-items: center;
   padding: 1%;
   border-radius: 20px;
+  /* border: 1px solid red; */
 }
 .topnav :hover{
   background-color: #70ae6e; 
@@ -60,7 +61,7 @@ body,
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 2%;
-  margin-left: 20%;
+  margin-left: 25%;
   margin-top: 2%;
 }
 .search-container button {
@@ -98,7 +99,7 @@ body,
   margin-top: 8%;
    
   border-radius: 20px;
-  height: 4.3vh;
+  height: 12.6vh;
   /* border: 1px solid blue; */
   
 }
@@ -117,28 +118,34 @@ body,
 .form {
   border: 1px solid rgb(245, 236, 236);
   width: 50%;
-  height: 60%;
+  height: 50%;
   padding: 20px;
   border-radius: 20px;
-  margin-left: 20%;
+  margin-left: 25%;
 }
 .title {
   padding: 15px;
-  margin: 3%;
+  margin: 10%;
+  margin-top: 1%;
+  margin-bottom: 2%;
   width: 80%;
   border-radius: 5px;
   border: 1px solid gray;
 }
 .link {
   padding: 15px;
-  margin: 3%;
+  margin: 10%;
+  margin-top: 1%;
+  margin-bottom: 2%;
   width: 80%;
   border-radius: 5px;
   border: 1px solid gray;
 }
 .description {
   padding: 15px;
-  margin: 3%;
+  margin: 10%;
+  margin-top: 1%;
+  margin-bottom: 2%;
   width: 80%;
   height: 20%;
   border-radius: 5px;
@@ -146,7 +153,9 @@ body,
 }
 .optional-tags {
   padding: 15px;
-  margin: 3%;
+  margin: 10%;
+  margin-top: 1%;
+  margin-bottom: 2%;  
   width: 80%;
   border-radius: 5px;
   border: 1px solid gray;
@@ -155,7 +164,7 @@ body,
   padding: 10px;
   border-radius: 5px;
   background-color: #70ae6e;
-  margin-left: 61%;
+  margin-left: 68%;
   border: 0px;
   cursor: pointer;
   color: black;
@@ -175,13 +184,14 @@ body,
 }
 .table, th, td {
   border-collapse: collapse;
-  border: 1px solid rgb(245, 6, 6);
+  /* border: 1px solid rgb(245, 6, 6); */
   width: 50%;
   height: 45%;
   padding: 20px;
   margin-top: 1%;
 }
 .table{
-  border: 1px solide rgb(21, 5, 243);
-  border-radius: 20px;
+ 
+  /* border: 1px solide rgb(21, 5, 243);
+  border-radius: 20px; */
 }

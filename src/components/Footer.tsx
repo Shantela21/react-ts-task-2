@@ -13,6 +13,7 @@ export default function Footer() {
               height: "4.5vh",
               marginTop: "1%",
               backgroundColor: "rgb(255, 255, 255)",
+              border: "none",
             }}
           >
             <FaFacebook
@@ -25,7 +26,14 @@ export default function Footer() {
             ></FaFacebook>
           </button>
 
-          <button style={{ height: "4.5vh", marginTop: "1%" }}>
+          <button
+            style={{
+              height: "4.5vh",
+              marginTop: "1%",
+              backgroundColor: "rgb(255, 255, 255)",
+              border: "none",
+            }}
+          >
             <FaGithub
               href="https://github.com/Shantela21"
               className="github"
@@ -36,7 +44,14 @@ export default function Footer() {
             ></FaGithub>
           </button>
 
-          <button style={{ height: "4.5vh", marginTop: "1%" }}>
+          <button
+            style={{
+              height: "4.5vh",
+              marginTop: "1%",
+              backgroundColor: "rgb(255, 255, 255)",
+              border: "none",
+            }}
+          >
             <FaLinkedin
               href="#"
               className="linkedin"
@@ -45,7 +60,13 @@ export default function Footer() {
           </button>
 
           <button
-            style={{ height: "4.5vh", marginTop: "1%", marginBottom: "1%" }}
+            style={{
+              height: "4.5vh",
+              marginTop: "1%",
+              marginBottom: "1%",
+              backgroundColor: "rgb(255, 255, 255)",
+              border: "none",
+            }}
           >
             <FaInstagram
               href="#"

@@ -33,9 +33,13 @@
 
 1. Clone the repository:
 
+<<<<<<< HEAD
    ```bash
    git clone https://github.com/Shantela21/react-ts-task-2.git
    cd react-ts-task-2
+=======
+
+>>>>>>> 7131c690a1159ecd3d9a4f733a7afd93fa3c9ae6
 
 2. Install dependencies:
 

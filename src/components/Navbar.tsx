@@ -29,6 +29,7 @@ export default function Navbar() {
         >
           About
         </a>
+        
       </div>
   );
 }

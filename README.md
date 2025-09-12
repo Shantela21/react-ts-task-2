@@ -1,70 +1,48 @@
-# React + TypeScript + Vite
+# React TS Task 2
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+`react-ts-task-2` is a TypeScript React project designed to demonstrate state management, component interaction, and local search functionality. The app features a responsive interface with a navigation bar, search functionality, a dynamic form, and a footer.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Navbar**: Provides navigation elements for the application.
+- **SearchBar**: Allows users to search through form entries by title, link, tags, and description.
+- **Form**: Displays a list of items filtered based on search queries.
+- **Footer**: Contains footer information for the app.
+- **State Management**: Uses React `useState` hooks for managing search queries and form data.
+- **TypeScript Support**: Ensures type safety across components.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Frontend Framework**: React 19.x
+- **Language**: TypeScript
+- **Styling**: CSS
+- **Icons**: React Icons
+- **Build Tool**: Vite
+- **Linting**: ESLint with React Hooks plugin
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Installation
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# react-ts-task-2
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Shantela21/react-ts-task-2.git
+   cd react-ts-task-2
+
+2. Install dependencies:
+   ```bash
+   npm install
+
+
+## Scripts
+
+   ### Run in Development Mode
+   ```bash
+  npm run dev

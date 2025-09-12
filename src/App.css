@@ -219,3 +219,91 @@ td {
   justify-content: space-evenly;
 }
 
+/* ============================= */
+/* 📱 Media Queries for Responsiveness */
+/* ============================= */
+
+/* Extra small devices (phones, portrait) - 320px */
+@media (max-width: 320px) {
+  .search-container, .form, .table {
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  .add-btn {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer > p {
+    padding: 5%;
+  }
+}
+
+/* Small devices (phones, landscape) - 480px */
+@media (max-width: 480px) {
+  .search-container, .form, .table {
+    width: 85%;
+    margin-left: 7.5%;
+  }
+
+  .add-btn {
+    width: 80%;
+    margin-left: 10%;
+  }
+
+  .topnav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* Medium devices (tablets) - 768px */
+@media (max-width: 768px) {
+  .search-container, .form, .table {
+    width: 70%;
+    margin-left: 15%;
+  }
+
+  .add-btn {
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+/* Large devices (small laptops) - 1024px */
+@media (max-width: 1024px) {
+  .search-container, .form, .table {
+    width: 60%;
+    margin-left: 20%;
+  }
+
+  .add-btn {
+    width: 40%;
+    margin-left: 30%;
+  }
+}
+
+/* Extra large devices (desktops) - 1200px */
+@media (max-width: 1200px) {
+  .search-container, .form, .table {
+    width: 55%;
+    margin-left: 22.5%;
+  }
+
+  .add-btn {
+    width: 30%;
+    margin-left: 35%;
+  }
+}

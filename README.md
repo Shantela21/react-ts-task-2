@@ -33,15 +33,74 @@
 
 1. Clone the repository:
 
-   ```bash
+
 
 2. Install dependencies:
+
    ```bash
    npm install
+   ```
 
+---
 
 ## Scripts
 
-   ### Run in Development Mode
-   ```bash
+- **Run in Development Mode**
+
+  ```bash
   npm run dev
+  ```
+
+- **Build for Production**
+
+  ```bash
+  npm run build
+  ```
+
+- **Preview Production Build**
+
+  ```bash
+  npm run preview
+  ```
+
+- **Run Linter**
+
+  ```bash
+  npm run lint
+  ```
+
+---
+
+## Usage
+
+1. Start the app with `npm run dev`.
+2. Use the search bar to filter items in the form.
+3. Add, edit, or remove items via the form.
+4. The footer and navbar provide navigation and additional information.
+
+---
+
+## Project Structure
+
+```
+react-ts-task-2/
+├─ src/
+│  ├─ components/
+│  │  ├─ Footer.tsx
+│  │  ├─ Form.tsx
+│  │  ├─ Navbar.tsx
+│  │  └─ SearchBar.tsx
+│  ├─ App.tsx
+│  ├─ main.tsx
+│  └─ App.css
+├─ package.json
+├─ tsconfig.json
+├─ vite.config.ts
+└─ README.md
+```
+
+---
+
+## Author
+
+Shantela Noyila

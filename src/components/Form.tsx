@@ -75,6 +75,7 @@ export default function Form({ query = "" }: { query?: string }) {
   return (
     <div className="main">
       <form className="form" onSubmit={handleSubmit}>
+        <h2 style={{paddingLeft:"10%"}}>ADD LINKS</h2>
         <input
           className="title"
           type="text"

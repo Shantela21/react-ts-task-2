@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Form from "./components/Form";
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
+import Title from "./components/Title";
 function App() {
   const [query, setQuery] = React.useState("");
   const [searchInput, setSearchInput] = React.useState("");
@@ -12,6 +13,7 @@ function App() {
       <div className="app">
         {/* <Title/> */}
         <Navbar />
+        <Title/>
         <div className="hero-section">
           <SearchBar
             searchValue={searchInput}

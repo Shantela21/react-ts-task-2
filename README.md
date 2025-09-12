@@ -1,4 +1,4 @@
-
+<img src="https://socialify.git.ci/Shantela21/react-ts-task-2/image?language=1&owner=1&name=1&stargazers=1&theme=Light" alt="react-ts-task-2" width="640" height="320" />
 # React TS Task 2
 
 ## Project Overview
@@ -37,9 +37,7 @@
    ```bash
    git clone https://github.com/Shantela21/react-ts-task-2.git
    cd react-ts-task-2
-=======
-
->>>>>>> 7131c690a1159ecd3d9a4f733a7afd93fa3c9ae6
+>>>>>>>>> Temporary merge branch 2
 
 2. Install dependencies:
 

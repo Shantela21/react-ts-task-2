@@ -29,7 +29,7 @@ body {
   background-color: white;
   width: 100%;
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
   align-items: center;
   padding: 15px 20px;
   border-radius: 20px;
@@ -38,7 +38,7 @@ body {
 
 .topnav a {
   flex: 1;
-  text-align: center; 
+  text-align: center;
   color: black;
   text-decoration: none;
   padding: 10px 0;
@@ -48,7 +48,7 @@ body {
 
 .topnav a:hover {
   background-color: #70ae6e;
-  color: black ;
+  color: black;
 }
 
 .topnav .logo {
@@ -57,8 +57,6 @@ body {
   font-weight: bold;
   font-size: 1.2rem;
 }
-
-
 
 .search-container {
   width: 50%;
@@ -159,7 +157,7 @@ body {
   border-radius: 20px;
 }
 .table {
-  margin-left: 25%;
+  /* margin-left: 25%; */
   border: 1px solid white;
   width: 50%;
   height: 45%;
@@ -167,6 +165,7 @@ body {
   margin-top: 1%;
   border-radius: 20px;
   background-color: rgb(228, 223, 223);
+  font-size: clamp(15px, 1px, 30px);
 }
 th,
 td {
@@ -180,7 +179,7 @@ td {
 }
 .main {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
 }
 
@@ -219,13 +218,10 @@ td {
   justify-content: space-evenly;
 }
 
-/* ============================= */
-/* 📱 Media Queries for Responsiveness */
-/* ============================= */
-
-/* Extra small devices (phones, portrait) - 320px */
 @media (max-width: 320px) {
-  .search-container, .form, .table {
+  .search-container,
+  .form,
+  .table {
     width: 90%;
     margin-left: 5%;
   }
@@ -245,9 +241,10 @@ td {
   }
 }
 
-/* Small devices (phones, landscape) - 480px */
 @media (max-width: 480px) {
-  .search-container, .form, .table {
+  .search-container,
+  .form,
+  .table {
     width: 85%;
     margin-left: 7.5%;
   }
@@ -264,9 +261,10 @@ td {
   }
 }
 
-/* Medium devices (tablets) - 768px */
 @media (max-width: 768px) {
-  .search-container, .form, .table {
+  .search-container,
+  .form,
+  .table {
     width: 70%;
     margin-left: 15%;
   }
@@ -282,9 +280,10 @@ td {
   }
 }
 
-/* Large devices (small laptops) - 1024px */
 @media (max-width: 1024px) {
-  .search-container, .form, .table {
+  .search-container,
+  .form,
+  .table {
     width: 60%;
     margin-left: 20%;
   }
@@ -295,9 +294,10 @@ td {
   }
 }
 
-/* Extra large devices (desktops) - 1200px */
 @media (max-width: 1200px) {
-  .search-container, .form, .table {
+  .search-container,
+  .form,
+  .table {
     width: 55%;
     margin-left: 22.5%;
   }

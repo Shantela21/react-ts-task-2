@@ -37,3 +37,13 @@
    ```bash
    git clone https://github.com/your-username/react-ts-task-2.git
    cd react-ts-task-2
+2. Install dependencies:
+   ```bash
+   npm install
+
+
+## Scripts
+
+   ### Run in Development Mode
+   ```bash
+  npm run dev

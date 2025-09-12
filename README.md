@@ -1,4 +1,3 @@
-<img src="https://socialify.git.ci/Shantela21/react-ts-task-2/image?language=1&owner=1&name=1&stargazers=1&theme=Light" alt="react-ts-task-2" width="640" height="320" />
 
 # React TS Task 2
 
@@ -35,8 +34,7 @@
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/react-ts-task-2.git
-   cd react-ts-task-2
+
 2. Install dependencies:
    ```bash
    npm install

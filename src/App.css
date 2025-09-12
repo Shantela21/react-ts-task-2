@@ -52,6 +52,7 @@ body {
 .topnav :hover {
   background-color: #70ae6e;
   border-radius: 20px;
+  
 }
 .topnav > a {
   color: black;

@@ -5,7 +5,7 @@ export interface LinkItem {
   description: string;
 }
 const STORAGE_KEY =("items");
-// Get all links
+
 export const getLinks = (): LinkItem[] => {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -14,13 +14,13 @@ export const getLinks = (): LinkItem[] => {
     return [];
   }
 };
-// Save new link
+
 export const saveLink = (link: LinkItem): void => {
   const links = getLinks();
   links.push(link);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(links));
 };
-// Clear all links
+
 export const clearLinks = (): void => {
   localStorage.removeItem(STORAGE_KEY);
 };

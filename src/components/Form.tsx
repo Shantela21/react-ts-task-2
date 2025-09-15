@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Toast from "./utils/Toaster";
+
 interface FormItem {
   title: string;
   link: string;
@@ -56,13 +58,16 @@ export default function Form({ query = "" }: { query?: string }) {
         return copy;
       });
       setEditIndex(null);
+      Toast("Editted successfully")
     } else {
       setItems((prev) => [...prev, formData]);
+      Toast("Added successfully");
     }
     setFormData({ title: "", link: "", tags: "", description: "" });
   };
   const handleDelete = (index: number) => {
-    setItems((prev) => prev.filter((_, i) => i !== index));
+      if (window.confirm("Are you sure you want to delete this link?"))
+        setItems((prev) => prev.filter((_, i) => i !== index));
     if (editIndex === index) {
       setEditIndex(null);
       setFormData({ title: "", link: "", tags: "", description: "" });

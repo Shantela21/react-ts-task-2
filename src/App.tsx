@@ -11,7 +11,6 @@ function App() {
   return (
     <>
       <div className="app">
-        {/* <Title/> */}
         <Navbar />
         <Title/>
         <div className="hero-section">
@@ -22,7 +21,6 @@ function App() {
           />
           <Form query={query} />
         </div>
-        {/* <Table/> */}
         <Footer />
       </div>
     </>

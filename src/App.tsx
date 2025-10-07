@@ -1,4 +1,5 @@
 import React from "react";
+import { Toaster } from "sonner";
 import "./App.css";
 import Footer from "./components/Footer";
 import Form from "./components/Form";
@@ -23,6 +24,7 @@ function App() {
         </div>
         <Footer />
       </div>
+      <Toaster richColors position="top-right" />
     </>
   );
 }

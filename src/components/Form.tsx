@@ -58,7 +58,7 @@ export default function Form({ query = "" }: { query?: string }) {
         return copy;
       });
       setEditIndex(null);
-      Toast("Editted successfully")
+      Toast("Updated successfully");
     } else {
       setItems((prev) => [...prev, formData]);
       Toast("Added successfully");
@@ -66,12 +66,14 @@ export default function Form({ query = "" }: { query?: string }) {
     setFormData({ title: "", link: "", tags: "", description: "" });
   };
   const handleDelete = (index: number) => {
-      if (window.confirm("Are you sure you want to delete this link?"))
-        setItems((prev) => prev.filter((_, i) => i !== index));
+    const confirmed = window.confirm("Are you sure you want to delete this link?");
+    if (!confirmed) return;
+    setItems((prev) => prev.filter((_, i) => i !== index));
     if (editIndex === index) {
       setEditIndex(null);
       setFormData({ title: "", link: "", tags: "", description: "" });
     }
+    Toast("Deleted successfully");
   };
   const handleEdit = (index: number) => {
     setFormData(items[index]);
@@ -145,28 +147,15 @@ export default function Form({ query = "" }: { query?: string }) {
                 <td>{item.description}</td>
                 <td>
                   <button
-                    className="t-btn"
+                    className="t-btn btn btn-edit"
                     type="button"
-                    style={{
-                      backgroundColor: "#70AE6E",
-                      marginBottom: "2%",
-                      border: "none",
-                      height: "40px",
-                      width: "100px",
-                    }}
                     onClick={() => handleEdit(index)}
                   >
                     EDIT
                   </button>
                   <button
-                    className="t-btn"
+                    className="t-btn btn btn-delete"
                     type="button"
-                    style={{
-                      backgroundColor: "#F4743B",
-                      border: "none",
-                      height: "40px",
-                      width: "100px",
-                    }}
                     onClick={() => handleDelete(index)}
                   >
                     DELETE

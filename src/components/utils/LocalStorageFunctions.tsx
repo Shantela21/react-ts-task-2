@@ -21,9 +21,9 @@ export const saveLink = (link: LinkItem): void => {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(links));
 };
 
-// export const clearLinks = (): void => {
-//   localStorage.removeItem(STORAGE_KEY);
-// };
+export const clearLinks = (): void => {
+  localStorage.removeItem(STORAGE_KEY);
+};
 export interface FormItem {
   title: string;
   link: string;
@@ -46,6 +46,6 @@ export const saveItems = (items: FormItem[]): void => {
     console.error("Could not save items:", err);
   }
 };
-// export const clearItems = (): void => {
-//   localStorage.removeItem(STORAGE_KEY);
-// };
+export const clearItems = (): void => {
+  localStorage.removeItem(STORAGE_KEY);
+};

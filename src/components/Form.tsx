@@ -124,47 +124,49 @@ export default function Form({ query = "" }: { query?: string }) {
         </button>
       </form>
       {filteredItems.length > 0 && (
-        <table className="table" border={1}>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Link</th>
-              <th>Tags</th>
-              <th>Description</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredItems.map((item, index) => (
-              <tr key={index}>
-                <td>{item.title}</td>
-                <td>
-                  <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    link
-                  </a>
-                </td>
-                <td>{item.tags}</td>
-                <td>{item.description}</td>
-                <td>
-                  <button
-                    className="t-btn btn btn-edit"
-                    type="button"
-                    onClick={() => handleEdit(index)}
-                  >
-                    EDIT
-                  </button>
-                  <button
-                    className="t-btn btn btn-delete"
-                    type="button"
-                    onClick={() => handleDelete(index)}
-                  >
-                    DELETE
-                  </button>
-                </td>
+        <div className="table-container">
+          <table className="table" border={1}>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Tags</th>
+                <th>Description</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredItems.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.title}</td>
+                  <td>
+                    <a href={item.link} target="_blank" rel="noopener noreferrer">
+                      link
+                    </a>
+                  </td>
+                  <td>{item.tags}</td>
+                  <td>{item.description}</td>
+                  <td>
+                    <button
+                      className="t-btn btn btn-edit"
+                      type="button"
+                      onClick={() => handleEdit(index)}
+                    >
+                      EDIT
+                    </button>
+                    <button
+                      className="t-btn btn btn-delete"
+                      type="button"
+                      onClick={() => handleDelete(index)}
+                    >
+                      DELETE
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );

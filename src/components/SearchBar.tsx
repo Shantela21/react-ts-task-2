@@ -20,7 +20,6 @@ export default function SearchBar({
           onSearch();
         }}
       >
-        <FaSearch id="search-btn" size="20px" />
         <input
           type="text"
           alt="search"
@@ -29,8 +28,8 @@ export default function SearchBar({
           value={searchValue}
           onChange={(e) => onSearchChange(e.target.value)}
         />
-        <button type="submit" style={{ display: "none" }} aria-hidden>
-          Search
+        <button type="submit" className="search-icon-btn">
+          <FaSearch size="20px"  />
         </button>
       </form>
     </div>

@@ -55,12 +55,6 @@ npm install
   ```bash
   npm run dev
   ```
-<<<<<<< HEAD
-  ```
-  ```
-=======
-
->>>>>>> 0a67aad743d6e51c62d58f5851a0d5f2d59d76ac
 
 - **Build for Production**
 
@@ -74,11 +68,6 @@ npm install
   npm run preview
   ```
 
-<<<<<<< HEAD
- 
-
-=======
->>>>>>> 0a67aad743d6e51c62d58f5851a0d5f2d59d76ac
 - **Run Linter**
 
   ```bash

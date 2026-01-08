@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Toast from "../utils/Toaster";
-import { loadItems, saveItems, isValidUrl, type FormItem } from "../utils/storage";
+import {
+  loadItems,
+  saveItems,
+  isValidUrl,
+  type FormItem,
+} from "../utils/storage";
 
 export default function Form({ query = "" }: { query?: string }) {
   const [formData, setFormData] = useState<FormItem>({
@@ -129,14 +134,14 @@ export default function Form({ query = "" }: { query?: string }) {
       </form>
       {filtered.length > 0 && (
         <div className="table-container">
-          <table className="table" border={1}>
+          <table className="table" border={1} aria-label="Saved links table">
             <thead>
               <tr>
-                <th>Title</th>
-                <th>Link</th>
-                <th>Tags</th>
-                <th>Description</th>
-                <th>Actions</th>
+                <th scope="col">Title</th>
+                <th scope="col">Link</th>
+                <th scope="col">Tags</th>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -148,8 +153,9 @@ export default function Form({ query = "" }: { query?: string }) {
                       href={item.link}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`Open ${item.title || item.link} in new tab`}
                     >
-                      link
+                      {item.title ? item.title : item.link}
                     </a>
                   </td>
                   <td>{item.tags}</td>

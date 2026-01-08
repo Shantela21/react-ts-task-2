@@ -4,7 +4,10 @@ type SearchBarProps = {
   searchValue: string;
   onSearchChange: (val: string) => void;
 };
-export default function SearchBar({ searchValue, onSearchChange }: SearchBarProps) {
+export default function SearchBar({
+  searchValue,
+  onSearchChange,
+}: SearchBarProps) {
   const inputRef = React.useRef<HTMLInputElement | null>(null);
   const handleIconClick = () => {
     inputRef.current?.focus();

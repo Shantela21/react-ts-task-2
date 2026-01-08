@@ -55,9 +55,7 @@ npm install
   ```bash
   npm run dev
   ```
-
   ```
-
   ```
 
 - **Build for Production**
@@ -76,9 +74,7 @@ npm install
   npm run preview
   ```
 
-  ```
-
-  ```
+ 
 
 - **Run Linter**
 

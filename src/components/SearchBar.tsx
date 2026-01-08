@@ -3,35 +3,34 @@ import { FaSearch } from "react-icons/fa";
 type SearchBarProps = {
   searchValue: string;
   onSearchChange: (val: string) => void;
-  onSearch: () => void;
 };
-export default function SearchBar({
-  searchValue,
-  onSearchChange,
-  onSearch,
-}: SearchBarProps) {
+export default function SearchBar({ searchValue, onSearchChange }: SearchBarProps) {
+  const inputRef = React.useRef<HTMLInputElement | null>(null);
+  const handleIconClick = () => {
+    inputRef.current?.focus();
+  };
   return (
     <div>
-      <form
-        className="search-container"
-        style={{}}
-        onSubmit={(e) => {
-          e.preventDefault();
-          onSearch();
-        }}
-      >
+      <div className="search-container">
         <input
+          ref={inputRef}
           type="text"
-          alt="search"
           id="search-bar"
-          style={{ border: "none" }}
+          className="search-input"
+          placeholder="Search links..."
+          aria-label="Search links"
           value={searchValue}
           onChange={(e) => onSearchChange(e.target.value)}
         />
-        <button type="submit" className="search-icon-btn">
-          <FaSearch size="20px"  />
+        <button
+          type="button"
+          className="search-icon"
+          aria-label="Focus search input"
+          onClick={handleIconClick}
+        >
+          <FaSearch size={18} />
         </button>
-      </form>
+      </div>
     </div>
   );
 }

@@ -20,8 +20,10 @@ function App() {
         <div className="hero-section">
           <SearchBar
             searchValue={searchInput}
-            onSearchChange={setSearchInput}
-            onSearch={() => setQuery(searchInput.trim())}
+            onSearchChange={(val) => {
+              setSearchInput(val);
+              setQuery(val.trim());
+            }}
           />
           <Form query={query} />
         </div>

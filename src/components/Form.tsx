@@ -9,6 +9,7 @@ export default function Form({ query = "" }: { query?: string }) {
     tags: "",
     description: "",
   });
+  const [linkError, setLinkError] = useState<string | null>(null);
   const [items, setItems] = useState<FormItem[]>([]);
   /* FILTERED ITEMS (preserve original indexes) */
   const q = (query || "").trim().toLowerCase();
@@ -33,15 +34,20 @@ export default function Form({ query = "" }: { query?: string }) {
     const { name, value } = e.target;
     const key = name as keyof FormItem;
     setFormData((prev) => ({ ...prev, [key]: value } as FormItem));
+    if (name === "link") setLinkError(null);
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formData.title.trim() || !formData.link.trim()) {
-      alert("Title and Link are required!");
+    if (!formData.title.trim()) {
+      alert("Title is required!");
+      return;
+    }
+    if (!formData.link.trim()) {
+      setLinkError("Link is required");
       return;
     }
     if (!isValidUrl(formData.link.trim())) {
-      alert("Please enter a valid URL (with or without http/https).");
+      setLinkError("Please enter a valid URL (with or without http/https).");
       return;
     }
     if (editIndex !== null) {
@@ -57,6 +63,7 @@ export default function Form({ query = "" }: { query?: string }) {
       Toast("Added successfully");
     }
     setFormData({ title: "", link: "", tags: "", description: "" });
+    setLinkError(null);
   };
   const handleDelete = (index: number) => {
     const confirmed = window.confirm(
@@ -94,7 +101,9 @@ export default function Form({ query = "" }: { query?: string }) {
           placeholder="Link (url)"
           value={formData.link}
           onChange={handleChange}
+          aria-invalid={!!linkError}
         />
+        {linkError && <div className="field-error">{linkError}</div>}
         <br />
         <input
           className="optional-tags"

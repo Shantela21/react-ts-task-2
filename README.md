@@ -1,5 +1,4 @@
 <img src="https://socialify.git.ci/Shantela21/react-ts-task-2/image?language=1&owner=1&name=1&stargazers=1&theme=Light" alt="react-ts-task-2" width="640" height="320" />
-# React TS Task 2
 
 ## Project Overview
 
@@ -33,19 +32,21 @@
 
 1. Clone the repository:
 
-<<<<<<< HEAD
-   ```bash
-   git clone https://github.com/Shantela21/react-ts-task-2.git
-   cd react-ts-task-2
->>>>>>>>> Temporary merge branch 2
+```bash
+git clone https://github.com/Shantela21/react-ts-task-2.git
+```
 
-2. Install dependencies:
+2. Navigate to the project directory:
 
-   ```bash
-   npm install
-   ```
+```bash
+cd react-ts-task-2
+```
 
----
+3. Install dependencies:
+
+```bash
+npm install
+```
 
 ## Scripts
 
@@ -55,10 +56,18 @@
   npm run dev
   ```
 
+  ```
+
+  ```
+
 - **Build for Production**
 
   ```bash
   npm run build
+  ```
+
+  ```
+
   ```
 
 - **Preview Production Build**
@@ -67,13 +76,15 @@
   npm run preview
   ```
 
+  ```
+
+  ```
+
 - **Run Linter**
 
   ```bash
   npm run lint
   ```
-
----
 
 ## Usage
 
@@ -86,7 +97,7 @@
 
 ## Project Structure
 
-```
+```bash
 react-ts-task-2/
 ├─ src/
 │  ├─ components/
@@ -101,10 +112,5 @@ react-ts-task-2/
 ├─ tsconfig.json
 ├─ vite.config.ts
 └─ README.md
+
 ```
-
----
-
-## Author
-
-Shantela Noyila

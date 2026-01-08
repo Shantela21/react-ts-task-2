@@ -9,11 +9,14 @@ import Title from "./components/Title";
 function App() {
   const [query, setQuery] = React.useState("");
   const [searchInput, setSearchInput] = React.useState("");
+  React.useEffect(() => {
+    if (searchInput.trim() === "") setQuery("");
+  }, [searchInput]);
   return (
     <>
       <div className="app">
         <Navbar />
-        <Title/>
+        <Title />
         <div className="hero-section">
           <SearchBar
             searchValue={searchInput}

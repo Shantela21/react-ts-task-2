@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Toast from "./utils/Toaster";
+import Toast from "../utils/Toaster";
+import { loadItems, saveItems, isValidUrl, type FormItem } from "../utils/storage";
 
-interface FormItem {
-  title: string;
-  link: string;
-  tags: string;
-  description: string;
-}
 export default function Form({ query = "" }: { query?: string }) {
   const [formData, setFormData] = useState<FormItem>({
     title: "",
@@ -15,11 +10,12 @@ export default function Form({ query = "" }: { query?: string }) {
     description: "",
   });
   const [items, setItems] = useState<FormItem[]>([]);
-  /* FILTERED ITEMS */
+  /* FILTERED ITEMS (preserve original indexes) */
   const q = (query || "").trim().toLowerCase();
-  const filteredItems = React.useMemo(() => {
-    if (!q) return items;
-    return items.filter((it) => {
+  const filtered = React.useMemo(() => {
+    const pairs = items.map((it, i) => ({ it, i }));
+    if (!q) return pairs;
+    return pairs.filter(({ it }) => {
       const bucket = [it.title, it.link, it.description || "", it.tags || ""]
         .join(" ")
         .toLowerCase();
@@ -28,17 +24,10 @@ export default function Form({ query = "" }: { query?: string }) {
   }, [items, q]);
   const [editIndex, setEditIndex] = useState<number | null>(null);
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem("items");
-      const saved = raw ? (JSON.parse(raw) as FormItem[]) : [];
-      setItems(saved);
-    } catch (err) {
-      console.error("Could not parse saved items:", err);
-      setItems([]);
-    }
+    setItems(loadItems());
   }, []);
   useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(items));
+    saveItems(items);
   }, [items]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -49,6 +38,10 @@ export default function Form({ query = "" }: { query?: string }) {
     e.preventDefault();
     if (!formData.title.trim() || !formData.link.trim()) {
       alert("Title and Link are required!");
+      return;
+    }
+    if (!isValidUrl(formData.link.trim())) {
+      alert("Please enter a valid URL (with or without http/https).");
       return;
     }
     if (editIndex !== null) {
@@ -66,7 +59,9 @@ export default function Form({ query = "" }: { query?: string }) {
     setFormData({ title: "", link: "", tags: "", description: "" });
   };
   const handleDelete = (index: number) => {
-    const confirmed = window.confirm("Are you sure you want to delete this link?");
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this link?"
+    );
     if (!confirmed) return;
     setItems((prev) => prev.filter((_, i) => i !== index));
     if (editIndex === index) {
@@ -82,7 +77,7 @@ export default function Form({ query = "" }: { query?: string }) {
   return (
     <div className="main">
       <form className="form" onSubmit={handleSubmit}>
-        <h2 style={{paddingLeft:"10%"}}>ADD LINKS</h2>
+        <h2 style={{ paddingLeft: "10%" }}>ADD LINKS</h2>
         <input
           className="title"
           type="text"
@@ -123,7 +118,7 @@ export default function Form({ query = "" }: { query?: string }) {
           {editIndex !== null ? "UPDATE" : "ADD"}
         </button>
       </form>
-      {filteredItems.length > 0 && (
+      {filtered.length > 0 && (
         <div className="table-container">
           <table className="table" border={1}>
             <thead>
@@ -136,11 +131,15 @@ export default function Form({ query = "" }: { query?: string }) {
               </tr>
             </thead>
             <tbody>
-              {filteredItems.map((item, index) => (
-                <tr key={index}>
+              {filtered.map(({ it: item, i: origIndex }) => (
+                <tr key={origIndex}>
                   <td>{item.title}</td>
                   <td>
-                    <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       link
                     </a>
                   </td>
@@ -150,14 +149,14 @@ export default function Form({ query = "" }: { query?: string }) {
                     <button
                       className="t-btn btn btn-edit"
                       type="button"
-                      onClick={() => handleEdit(index)}
+                      onClick={() => handleEdit(origIndex)}
                     >
                       EDIT
                     </button>
                     <button
                       className="t-btn btn btn-delete"
                       type="button"
-                      onClick={() => handleDelete(index)}
+                      onClick={() => handleDelete(origIndex)}
                     >
                       DELETE
                     </button>

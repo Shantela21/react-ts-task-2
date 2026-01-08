@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
 
-export default function Buttons() {
+type Props = {
+  onClick?: () => void;
+  label?: string;
+};
+
+export default function Buttons({ onClick, label = "Button" }: Props) {
   return (
-    <div>
-      <div className='btn'>
-
-      </div>
-    </div>
-  )
+    <button className="app-button" onClick={onClick}>
+      {label}
+    </button>
+  );
 }

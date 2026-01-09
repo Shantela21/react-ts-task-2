@@ -16,6 +16,7 @@ export default function Form({ query = "" }: { query?: string }) {
   });
   const [linkError, setLinkError] = useState<string | null>(null);
   const [items, setItems] = useState<FormItem[]>([]);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
   /* FILTERED ITEMS (preserve original indexes) */
   const q = (query || "").trim().toLowerCase();
   const filtered = React.useMemo(() => {
@@ -30,11 +31,18 @@ export default function Form({ query = "" }: { query?: string }) {
   }, [items, q]);
   const [editIndex, setEditIndex] = useState<number | null>(null);
   useEffect(() => {
-    setItems(loadItems());
+    console.log("[Form] Component mounted, loading items");
+    const loadedItems = loadItems();
+    console.log("[Form] Loaded items from storage:", loadedItems);
+    setItems(loadedItems);
+    setIsInitialLoad(false);
   }, []);
   useEffect(() => {
-    saveItems(items);
-  }, [items]);
+    if (!isInitialLoad) {
+      console.log("[Form] Items state changed, saving to localStorage:", items);
+      saveItems(items);
+    }
+  }, [items, isInitialLoad]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     const key = name as keyof FormItem;
@@ -43,6 +51,8 @@ export default function Form({ query = "" }: { query?: string }) {
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    e.stopPropagation(); // Additional safeguard
+    
     if (!formData.title.trim()) {
       alert("Title is required!");
       return;

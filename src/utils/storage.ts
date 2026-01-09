@@ -10,7 +10,9 @@ const STORAGE_KEY = "items";
 export const loadItems = (): FormItem[] => {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as FormItem[]) : [];
+    const parsed = raw ? (JSON.parse(raw) as FormItem[]) : [];
+    console.log("[Storage] Loaded items:", parsed);
+    return parsed;
   } catch (err) {
     console.error("Could not parse saved items:", err);
     return [];
@@ -19,7 +21,13 @@ export const loadItems = (): FormItem[] => {
 
 export const saveItems = (items: FormItem[]): void => {
   try {
+    console.log("[Storage] Saving items:", items);
+    console.log("[Storage] Items length:", items.length);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    console.log("[Storage] Items saved successfully");
+    // Verify it was saved
+    const saved = localStorage.getItem(STORAGE_KEY);
+    console.log("[Storage] Verification - saved data:", saved);
   } catch (err) {
     console.error("Could not save items:", err);
   }
@@ -37,8 +45,7 @@ export const isValidUrl = (value: string): boolean => {
   if (!value) return false;
   try {
     const tested = value.match(/^https?:\/\//i) ? value : `http://${value}`;
-    // eslint-disable-next-line no-unused-vars
-    const u = new URL(tested);
+    new URL(tested); // Just test if it's a valid URL
     return true;
   } catch {
     return false;

@@ -56,11 +56,23 @@ export const clearItems = (): void => {
 };
 
 export const isValidUrl = (value: string): boolean => {
-  if (!value) return false;
+  if (!value || typeof value !== 'string') return false;
+  
+  const trimmedValue = value.trim();
+  if (!trimmedValue) return false;
+  
+  // Basic URL pattern check - must contain at least a domain and TLD
+  const urlPattern = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/;
+  
+  // If it already has http/https, test it directly
+  if (trimmedValue.match(/^https?:\/\//i)) {
+    return urlPattern.test(trimmedValue);
+  }
+  
+  // If no protocol, try adding http:// and test
   try {
-    const tested = value.match(/^https?:\/\//i) ? value : `http://${value}`;
-    new URL(tested); // Just test if it's a valid URL
-    return true;
+    const withProtocol = `http://${trimmedValue}`;
+    return urlPattern.test(withProtocol);
   } catch {
     return false;
   }

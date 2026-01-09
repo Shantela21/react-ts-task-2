@@ -52,7 +52,17 @@ export default function Form({ query = "" }: { query?: string }) {
     const { name, value } = e.target;
     const key = name as keyof FormItem;
     setFormData((prev) => ({ ...prev, [key]: value } as FormItem));
-    if (name === "link") setLinkError(null);
+    
+    // Real-time URL validation
+    if (name === "link") {
+      if (!value.trim()) {
+        setLinkError("Link is required");
+      } else if (!isValidUrl(value.trim())) {
+        setLinkError("Please enter a valid URL (e.g., google.com or https://google.com)");
+      } else {
+        setLinkError(null);
+      }
+    }
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -67,7 +77,7 @@ export default function Form({ query = "" }: { query?: string }) {
       return;
     }
     if (!isValidUrl(formData.link.trim())) {
-      setLinkError("Please enter a valid URL (with or without http/https).");
+      setLinkError("Please enter a valid URL (e.g., google.com or https://google.com)");
       return;
     }
     if (editIndex !== null) {

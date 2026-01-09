@@ -31,7 +31,7 @@ export default function Form({ query = "" }: { query?: string }) {
   }, [items, q]);
   const [editIndex, setEditIndex] = useState<number | null>(null);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
-  
+
   useEffect(() => {
     console.log("[Form] Component mounted, loading items");
     debugLocalStorage(); // Debug localStorage state
@@ -40,11 +40,11 @@ export default function Form({ query = "" }: { query?: string }) {
     setItems(loadedItems);
     setIsInitialLoad(false);
   }, []);
-  
+
   useEffect(() => {
     // Don't save on initial load to prevent overwriting existing data
     if (isInitialLoad) return;
-    
+
     console.log("[Form] Items state changed, saving to localStorage:", items);
     saveItems(items);
   }, [items, isInitialLoad]);
@@ -57,7 +57,7 @@ export default function Form({ query = "" }: { query?: string }) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     e.stopPropagation(); // Additional safeguard
-    
+
     if (!formData.title.trim()) {
       alert("Title is required!");
       return;
@@ -147,7 +147,7 @@ export default function Form({ query = "" }: { query?: string }) {
           {editIndex !== null ? "UPDATE" : "ADD"}
         </button>
       </form>
-      {filtered.length > 0 && (
+      {filtered.length > 0 ? (
         <div className="table-container">
           <table className="table" border={1} aria-label="Saved links table">
             <thead>
@@ -196,6 +196,42 @@ export default function Form({ query = "" }: { query?: string }) {
             </tbody>
           </table>
         </div>
+      ) : (
+        // Show helpful messages when there are no items or no matches
+        !isInitialLoad &&
+        (items.length === 0 ? (
+          <div className="empty-message" style={{ 
+            width: "100%",
+            maxWidth: "1100px",
+            margin: "16px auto",
+            padding: "2rem",
+            textAlign: "center",
+            color: "#6b7280",
+            fontSize: "1.1rem",
+            fontStyle: "italic",
+            backgroundColor: "#f9fafb",
+            borderRadius: "20px",
+            border: "2px dashed #d1d5db"
+          }}>
+            📝 No links added yet. Start by adding your first link above!
+          </div>
+        ) : q ? (
+          <div className="empty-message" style={{ 
+            width: "100%",
+            maxWidth: "1100px",
+            margin: "16px auto",
+            padding: "2rem",
+            textAlign: "center",
+            color: "#6b7280",
+            fontSize: "1.1rem",
+            fontStyle: "italic",
+            backgroundColor: "#f9fafb",
+            borderRadius: "20px",
+            border: "2px dashed #d1d5db"
+          }}>
+            🔍 No links found matching "{query}"
+          </div>
+        ) : null)
       )}
     </div>
   );

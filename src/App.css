@@ -488,39 +488,13 @@ video {
 }
 
 @media (min-width: 768px) {
-  .search-container,
-  .form,
-  .table {
-    max-width: 720px;
-  }
-
-  .add-btn {
-    width: 50%;
-    margin: 12px auto 0 auto;
-  }
-
   .footer {
     flex-direction: row;
     justify-content: space-between;
     padding: 14px 22px;
-    gap: 30px;
   }
-
   .footer > p {
     margin: 0;
-  }
-
-  .topnav {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    gap: 0;
-    flex-wrap: wrap;
-  }
-
-  .topnav a {
-    width: auto;
-    flex: 1;
   }
 }
 
@@ -537,15 +511,34 @@ video {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .search-container,
   .form,
   .table {
-    max-width: 900px;
+    max-width: 720px;
   }
 
   .add-btn {
-    width: 40%;
+    width: 50%;
+    margin: 12px auto 0 auto;
+  }
+
+  .footer {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .topnav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .topnav a {
+    width: auto;
+    flex: 1;
   }
 }
 
